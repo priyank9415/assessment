@@ -30,8 +30,18 @@ export const getReturnAmount = async (req, res) => {
     const days = currentDate.diff(parsedData.lend_date, "day");
     return {
       total_days: days,
-      total_price: days * RENT[booktype],
+      total_price: calculateRent(days, booktype),
       book_type: booktype,
     };
   } catch (error) {}
+};
+
+const calculateRent = (days, book_type) => {
+  const charges = RENT[book_type];
+  console.log("charges: ", charges);
+  if (days <= charges.min_days) return charges.min_rent;
+  const total_rent =
+    charges.min_days * charges.initial_rent +
+    (days - charges.min_days) * charges.regular_rent;
+  return total_rent;
 };

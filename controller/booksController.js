@@ -26,7 +26,6 @@ export const getBookReturDate = async (req, res) => {
     const availableDate = currentDate
       .subtract(bookData[0].days_to_return)
       .format("DD-MMM-YYYY");
-    console.log("response: ", JSON.parse(JSON.stringify(response)));
 
     return { bookName: bookName, bookId: bookId, availableDate };
   } catch (error) {
