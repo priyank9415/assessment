@@ -1,5 +1,7 @@
 import express from "express";
 import sequelize from "./db.js";
+import dotenv from "dotenv";
+dotenv.config();
 // const { express } = pkg;
 import { getBookReturDate } from "./controller/booksController.js";
 import { getReturnAmount } from "./controller/customerController.js";

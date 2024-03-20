@@ -32,6 +32,10 @@ const Book = sequelize.define(
       type: DataTypes.NUMBER,
       // allowNull defaults to true
     },
+    book_type: {
+      type: DataTypes.STRING,
+      // allowNull defaults to true
+    },
   },
   {
     timestamps: true,
